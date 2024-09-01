@@ -1,0 +1,159 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #000;
+    background-image: radial-gradient(circle, #1a1a1a, #333);
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #ffcd00;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+  }
+
+  .flag-container {
+    position: relative;
+    width: 280px;
+    height: 200px;
+    overflow: hidden;
+    border: 2px solid #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+  }
+
+  .flag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #da251d;
+    animation: wave 5s infinite ease-in-out;
+    transform-origin: 0 50%;
+  }
+
+  .flag .star {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    background-color: #ffcd00;
+    clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+    transform: translate(-50%, -50%);
+  }
+
+  @keyframes wave {
+    0% {
+      transform: translateX(0) rotateZ(0deg);
+    }
+    25% {
+      transform: translateX(-1%) rotateZ(-0.5deg);
+    }
+    50% {
+      transform: translateX(0) rotateZ(0.5deg);
+    }
+    75% {
+      transform: translateX(1%) rotateZ(-0.5deg);
+    }
+    100% {
+      transform: translateX(0) rotateZ(0deg);
+    }
+  }
+
+  .firework {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    animation: explode 1.5s ease-out infinite;
+    opacity: 0;
+  }
+
+  .firework.yellow {
+    background-color: #ffcd00;
+  }
+
+  .firework.red {
+    background-color: #da251d;
+  }
+
+  .firework:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+  .firework:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+  .firework:nth-child(4) {
+    animation-delay: 0.9s;
+  }
+
+  @keyframes explode {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(50);
+      opacity: 0;
+    }
+  }
+
+  .ho-chi-minh {
+    width: 120px;
+    border: 3px solid #ffcd00;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 205, 0, 0.7);
+    opacity: 0.95;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      flex-direction: row;
+      gap: 50px;
+    }
+
+    .flag-container {
+      width: 320px;
+      height: 220px;
+    }
+
+    .flag .star {
+      width: 120px;
+      height: 120px;
+    }
+
+    .ho-chi-minh {
+      width: 150px;
+    }
+  }
